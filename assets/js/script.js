@@ -18,7 +18,7 @@ button_search.addEventListener("click", () => {
             movies.results.forEach(movies => {
                 if (movies.poster_path == null) {
                     contain.innerHTML += `
-                    <div class="card bg-secondary card2" style="width: 18rem;">
+                    <div class="bg-secondary card2" style="width: 18rem;">
                         <div class="empty_img">
                             <div class="text_empty_img">No poster</div>
                         </div>
@@ -48,8 +48,8 @@ button_search.addEventListener("click", () => {
         `
                 } else {
                     contain.innerHTML += `
-                    <div class="card bg-secondary card2" style="width: 18rem;">
-                        <img src="https://image.tmdb.org/t/p/w500/${movies.poster_path}" class="card-img-top" alt="Affiche">
+                    <div class="bg-secondary card2" style="width: 18rem;">
+                        <img src="https://image.tmdb.org/t/p/w200/${movies.poster_path}" class="card-img-top" alt="Affiche">
                         <div class="card-body">
                             <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 ${movies.original_title}
@@ -88,7 +88,7 @@ fetch('https://api.themoviedb.org/3/movie/now_playing?language=fr-FR&page=1', op
         latest.results.forEach(latest => {
             if (latest.poster_path == null) {
             contain.innerHTML += `
-            <div class="card bg-secondary card2" style="width: 18rem;">
+            <div class="bg-secondary card2" style="width: 18rem;">
                 <div class="empty_img">
                     <div class="text_empty_img">No poster</div>
                 </div>
@@ -120,8 +120,8 @@ fetch('https://api.themoviedb.org/3/movie/now_playing?language=fr-FR&page=1', op
 `
         } else {
             contain.innerHTML += `
-            <div class="card bg-secondary card2" style="width: 18rem;">
-                <img src="https://image.tmdb.org/t/p/w200/${latest.poster_path}" class="card-img-top" alt="Affiche">
+            <div class="bg-secondary card2" style="width: 18rem;">
+                <img src="https://image.tmdb.org/t/p/w200/${latest.poster_path}" class="card-img-top mes_images" alt="Affiche">
                 <div class="card-body">
                 <h1>
                     ${latest.original_title}
