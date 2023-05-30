@@ -19,7 +19,9 @@ button_search.addEventListener("click", () => {
                 if(movies.poster_path == null) {
                     contain.innerHTML += `
                     <div class="card bg-secondary card2" style="width: 18rem;">
-                        <p class="empty_img"></p>
+                        <div class="empty_img">
+                            <div class="text_empty_img">No poster</div>
+                        </div>
                         <div class="card-body">
                             <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 ${movies.original_title}
@@ -47,7 +49,7 @@ button_search.addEventListener("click", () => {
                         } else{
                             contain.innerHTML += `
                     <div class="card bg-secondary card2" style="width: 18rem;">
-                        <img src="https://image.tmdb.org/t/p/w500/${movies.poster_path}" class="card-img-top" alt="...">
+                        <img src="https://image.tmdb.org/t/p/w500/${movies.poster_path}" class="card-img-top" alt="Affiche">
                         <div class="card-body">
                             <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 ${movies.original_title}
@@ -61,9 +63,9 @@ button_search.addEventListener("click", () => {
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="card" style="width: 18rem;">
-                                <img src="..." class="card-img-top" alt="...">
+                                <img src="https://image.tmdb.org/t/p/w300/${movies.poster_path}" class="card-img-top" alt="Affiche">
                                 <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
+                                    <h5 class="card-title">${movies.original_title}</h5>
                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk
                                         of the card's content.</p>
                                 </div>
@@ -79,5 +81,5 @@ button_search.addEventListener("click", () => {
         // .catch(err => console.error(err));
 })
 
-
+fetch(`https://api.themoviedb.org/3/search/movie?query=${search.value}&include_adult=false&language=fr-FR`, options)
 
