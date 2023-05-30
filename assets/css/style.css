@@ -36,3 +36,7 @@
 .barnav{
     padding: 0;
 }
+
+#most_popular{
+    display: flex;
+}
